@@ -96,9 +96,10 @@ button {
                 <input type="password" id="password" name="password" required="required" /><br />
                 <button type="submit">LOG IN</button>
             </form>
+            <div class="pesan error" </div>
+            </div>
         </div>
-    </div>
-    <img class="footer" src="https://i.postimg.cc/85MmPkfw/undraw-moonlight-5-ksn-1-1.png" />
+        <img class=" footer" src="https://i.postimg.cc/85MmPkfw/undraw-moonlight-5-ksn-1-1.png" />
 </body>
 
 </html>

@@ -193,8 +193,8 @@
     <nav class="nav">
         <a class="active" href="/home"><img src=" https://i.postimg.cc/3N1zdmXf/logo.png" /></a>
         <a class="logout" href="{{url('logout')}}">Logout</a>
-        <a href="/pengajuan">Nomor Surat</a>
-        <a href="/bukutamu">Buku Tamu</a>
+        <a href="/riwayatPengajuan">Nomor Surat</a>
+        <a href="/riwayatBuktamu">Buku Tamu</a>
     </nav>
 
     <div class="selamatDatang">

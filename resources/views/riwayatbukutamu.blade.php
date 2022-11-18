@@ -117,10 +117,10 @@ h1 {
         <a href="#sekretaris" style="background: none">Sekretaris</a>
         <a href="#riwayat">Riwayat Saya</a>
         <a href="#nosurat">Nomor Surat</a>
-        <a href="#buktum">Buku Tamu</a>
+        <a href="/riwayatBuktamu">Buku Tamu</a>
     </nav>
     <center>
-        <h1>Riwayat Buku Tamu</h1>
+        <h1>Riwayat Buku Tamu - Nyurat</h1>
     </center>
     <div class="scroll1">
         <div class="scroll2">
@@ -135,6 +135,16 @@ h1 {
                             <th>Kegiatan</th>
                             <th width="500px">File</th>
                         </tr>
+                        @foreach($bukutamu as $bk)
+                        <tr>
+                            <td>{{ $bk->nama }}</td>
+                            <td>{{ $bk->kontak }}</td>
+                            <td>{{ $bk>jenis }}</td>
+                            <td>{{ $bk->kegiatan }}</td>
+                            <td>{{ $bk->file }}</td>
+                            </td>
+                        </tr>
+                        @endforeach
                     </thead>
                 </table>
             </div>

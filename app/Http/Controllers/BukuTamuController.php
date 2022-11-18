@@ -7,6 +7,14 @@ use Illuminate\Support\Facades\DB;
 
 class BukuTamuController extends Controller
 {
+	public function index()
+    {
+    	// mengambil data dari table buku tamu
+		$bukutamu = DB::table('buku_tamu')->get();
+    	// mengirim data buku tamu ke view index
+		return view('riwayatbukutamu',['buku_tamu' => $bukutamu]);
+    }
+	
     public function input() {
         return view('buku_tamu');
     }

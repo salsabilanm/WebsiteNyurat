@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\SekreController;
 use App\Http\Controllers\BukuTamuController;
 
 /*
@@ -21,7 +22,7 @@ Route::get('logout', 'App\Http\Controllers\LoginController@logout')->name('logou
 
 Route::group(['middleware' => ['auth']], function () {
     Route::group(['middleware' => ['ceklogin:sekretaris']], function () {
-        Route::resource('sekre-home', HomeController::class);
+        Route::resource('sekre-home', SekreController::class);
     });
     Route::group(['middleware' => ['ceklogin:user']], function () {
         Route::resource('home', HomeController::class);
@@ -43,9 +44,7 @@ Route::get('/riwayat', function () {
     return view('riwayat');
 });
 
-Route::get('/riwayatBuktam', function () {
-    return view('riwayatbukutamu');
-});
+Route::get('/riwayatBuktamu',[BukuTamuController::class, 'index']);
 
 Route::get('/riwayatPengajuan', function () {
     return view('riwayatpengajuan');
