@@ -12,7 +12,7 @@ class LoginController extends Controller
     {
         if ($user = Auth::user()) {
             if ($user->role == 'sekretaris') {
-                return redirect()->intended('sekrehome');
+                return redirect()->intended('sekre-home');
             } elseif ($user->role == 'user') {
                 return redirect()->intended('home');
             }
@@ -33,7 +33,7 @@ class LoginController extends Controller
             if (Auth::attempt($kredensil)) {
                 $user = Auth::user();
                 if ($user->role == 'sekretaris') {
-                    return redirect()->intended('sekrehome');
+                    return redirect()->intended('sekre-home');
                 } elseif ($user->role == 'user') {
                     return redirect()->intended('home');
                 }

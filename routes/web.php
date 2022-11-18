@@ -20,7 +20,7 @@ Route::get('logout', 'App\Http\Controllers\LoginController@logout')->name('logou
 
 Route::group(['middleware' => ['auth']], function () {
     Route::group(['middleware' => ['ceklogin:sekretaris']], function () {
-        Route::resource('sekrehome', HomeController::class);
+        Route::resource('sekre-home', HomeController::class);
     });
     Route::group(['middleware' => ['ceklogin:user']], function () {
         Route::resource('home', HomeController::class);
