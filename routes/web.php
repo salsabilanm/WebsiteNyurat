@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\BukuTamuController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,9 +32,7 @@ Route::get('/faq', function () {
     return view('faq');
 });
 
-Route::get('/bukutamu', function () {
-    return view('buku_tamu');
-});
+Route::get('/bukutamu','BukuTamuController@input');
 
 Route::get('/pengajuan', function () {
     return view('pengajuan');
