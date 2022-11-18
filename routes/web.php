@@ -32,7 +32,8 @@ Route::get('/faq', function () {
     return view('faq');
 });
 
-Route::get('/bukutamu','BukuTamuController@input');
+Route::get('/bukutamu', [BukuTamuController::class, 'input']);
+Route::post('/bukutamu/store', [BukuTamuController::class, 'store']);
 
 Route::get('/pengajuan', function () {
     return view('pengajuan');

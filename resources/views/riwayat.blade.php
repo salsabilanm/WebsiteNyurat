@@ -71,7 +71,7 @@ h1 {
         <a href="/bukutamu">Buku Tamu</a>
     </nav>
     <center>
-        <h1>Riwayat Pengajuan</h1>
+        <h1>Riwayat Pengajuan - Nyurat</h1>
     </center>
     <div class="scroll1">
         <div class="scroll2">
@@ -103,7 +103,7 @@ h1 {
             <img src="https://i.postimg.cc/Pqp11spj/logo-2-Traced.png" alt="Nyurat" />
             <ul class="faqcon">
                 <li><a href="#">Contact Us</a></li>
-                <li><a href="#">FAQ</a></li>
+                <li><a href="/faq">FAQ</a></li>
             </ul>
             <ul class="socials">
                 <li><a href="https://instagram.com/kbmsi_ub?igshid=YmMyMTA2M2Y="><i class="fa fa-instagram"></i></a>
