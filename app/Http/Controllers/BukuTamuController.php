@@ -16,7 +16,7 @@ class BukuTamuController extends Controller
     }
 	
     public function input() {
-        return view('buku_tamu');
+        return view('bukutamu');
     }
 
     public function store(Request $request)

@@ -208,20 +208,17 @@ textarea {
 
     <footer>
         <div class="footer-content">
-            <img src="https://i.postimg.cc/Pqp11spj/logo-2-Traced.png" alt="Nyurat" />
+            <img src="https://i.postimg.cc/Pqp11spj/logo-2-Traced.png" alt="Nyurat">
             <ul class="faqcon">
-                <li><a href="#">Contact Us</a></li>
-                <li><a href="#">FAQ</a></li>
+                <li><a href="/customerservice">Contact Us</a></li>
+                <li><a href="/faq">FAQ</a></li>
             </ul>
             <ul class="socials">
-                <li>
-                    <a href="#"><i class="fa fa-instagram"></i></a>
+                <li><a href="https://instagram.com/kbmsi_ub?igshid=YmMyMTA2M2Y="><i class="fa fa-instagram"></i></a>
                 </li>
-                <li>
-                    <a href="#"><i class="fa fa-twitter"></i></a>
-                </li>
-                <li>
-                    <a href="#"><i class="fa fa-youtube"></i></a>
+                <li><a href="https://twitter.com/emsi_ub?t=t31fcZHRh9EBvfcgmhvtYw&s=06"><i
+                            class="fa fa-twitter"></i></a></li>
+                <li><a href="https://youtube.com/channel/UCc7XWqQPVoSx7rAonTRiv9w"><i class="fa fa-youtube"></i></a>
                 </li>
             </ul>
         </div>

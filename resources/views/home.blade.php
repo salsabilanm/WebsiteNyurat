@@ -241,7 +241,7 @@
         <div class="footer-content">
             <img src="https://i.postimg.cc/Pqp11spj/logo-2-Traced.png" alt="Nyurat">
             <ul class="faqcon">
-                <li><a href="/contactUs">Contact Us</a></li>
+                <li><a href="/customerservice">Contact Us</a></li>
                 <li><a href="/faq">FAQ</a></li>
             </ul>
             <ul class="socials">

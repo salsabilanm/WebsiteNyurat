@@ -47,3 +47,7 @@ Route::group(['middleware' => ['auth']], function () {
 Route::get('/faq', function () {
     return view('faq');
 });
+
+Route::get('/customerservice', function () {
+    return view('customerservice');
+});

@@ -42,7 +42,7 @@ class LoginController extends Controller
 
         return redirect('/')
                 ->withInput()
-                ->withErrors(['login_gagal' => 'Maaf, NIM atau Password Anda Salah. Harap Masukkan Kembali ']);
+                ->withErrors(['login_gagal' => 'Maaf, NIM atau Password Anda Salah. Harap Masukkan Kembali']);
     }
 
     public function logout(Request $request)
