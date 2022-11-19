@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Riwayat Buku Tamu - Nyurat</title>
-    <link rel="stylesheet" type="text/css" href="{!! asset('css/footer-sekre.css') !!}">
+    <link rel="stylesheet" type="text/css" href="{!! asset('css/footer.css') !!}">
     <link rel="stylesheet" type="text/css" href="{!! asset('css/navbar.css') !!}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
@@ -60,23 +60,45 @@ h1 {
     max-width: 100%;
     overflow: auto;
 }
+
+
+table {
+    min-width: 100%;
+    border: none;
+}
+
+table th,
+table td {
+    text-align: left;
+    min-width: 100px;
+    white-space: nowrap;
+    padding: 8px 20px;
+    border: none;
+}
+
+table tr:hover {
+    background: #eee;
+}
+
+.nomer {
+    min-width: 30px;
+}
 </style>
 
 <body>
     <nav class="nav">
         <a class="active" href="/sekre-home"><img src=" https://i.postimg.cc/3N1zdmXf/logo.png" /></a>
         <a class="logout" href="{{url('logout')}}">Logout</a>
-        <a href="/riwayatPengajuan">Nomor Surat</a>
-        <a href="/riwayatBuktamu">Buku Tamu</a>
+        <a href="/pengajuan/riwayat">Nomor Surat</a>
+        <a href="/bukutamu/riwayat">Buku Tamu</a>
     </nav>
     <center>
         <h1>Riwayat Buku Tamu - Nyurat</h1>
     </center>
     <div class="scroll1">
         <div class="scroll2">
-            @forelse($buku_tamu as $bk)
             <div class="boxriw1">
-                <table border="0" width="2000px">
+                <table border="0">
                     <thead>
                         <tr>
                             <th class="nomer" width="30px">No</th>
@@ -86,36 +108,37 @@ h1 {
                             <th>Kegiatan</th>
                             <th width="500px">File</th>
                         </tr>
+                        <?php $no = 0; ?>
+                        @forelse($buku_tamu as $bk)
+                        <?php $no++; ?>
+                        <tr>
+                            <td>{{ $no }}</td>
+                            <td>{{$bk->nama}}</td>
+                            <td>{{$bk->kontak}}</td>
+                            <td>{{$bk->jenis}}</td>
+                            <td>{{$bk->kegiatan}}</td>
+                            <td>{{$bk->file}}</td>
+                            </td>
+                        </tr>
                         @empty
-                        <div class="error">
-                            Belum terdapat Data Buku Tamu.
-                        </div>
+                        <tr>
+                            <td colspan="6" style="text-align: center; padding: 12px">Tidak ada buku tamu</td>
+                        </tr>
                         @endforelse
                     </thead>
                 </table>
             </div>
-            <div class="boxriw2">
-                <table border="0" width=" 2000px">
-                    <?php $no = 0;?>
-                    @foreach($buku_tamu as $bk)
-                    <?php $no++ ;?>
-                    <tr>
-                        <td>{{ $no }}</td>
-                        <td>{{$bk->nama}}</td>
-                        <td>{{$bk->kontak}}</td>
-                        <td>{{$bk->jenis}}</td>
-                        <td>{{$bk->kegiatan}}</td>
-                        <td>{{$bk->file}}</td>
-                        </td>
-                    </tr>
-                    @endforeach
-                </table>
-            </div>
+            <div class="boxriw2"></div>
         </div>
     </div>
+
     <footer>
-        <div class=" footer-content">
-            <img src="https://i.postimg.cc/Pqp11spj/logo-2-Traced.png" alt="Nyurat">
+        <div class="footer-content">
+            <img src="https://i.postimg.cc/Pqp11spj/logo-2-Traced.png" alt="Nyurat" />
+            <ul class="faqcon">
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="#">FAQ</a></li>
+            </ul>
             <ul class="socials">
                 <li><a href="https://instagram.com/kbmsi_ub?igshid=YmMyMTA2M2Y="><i class="fa fa-instagram"></i></a>
                 </li>
@@ -129,6 +152,7 @@ h1 {
             <p>copyright &copy;2022 KBMSI FILKOM UB</p>
         </div>
     </footer>
+
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>

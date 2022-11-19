@@ -199,8 +199,6 @@ label {
         <div class="container">
             <form action="/pengajuan/store" method="post">
                 {{ csrf_field() }}
-                <label>NIM</label><br />
-                <input id="nim" name="nim" required="required" placeholder="205150401111018" /><br />
                 <label>Nama</label><br />
                 <input id="nama" name="nama" required="required" placeholder="Tata Angela" /><br />
                 <label>Kontak</label><br />

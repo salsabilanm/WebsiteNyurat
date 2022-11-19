@@ -142,19 +142,16 @@ textarea {
     text-decoration: none;
     cursor: pointer;
 }
-
-.nomorSuratModal {
-    margin-left: 12px;
-}
 </style>
 
 
 <body>
     <nav class="nav">
-        <a class="active" href="/sekre-home"><img src=" https://i.postimg.cc/3N1zdmXf/logo.png" /></a>
+        <a class="active" href="/home"><img src="https://i.postimg.cc/3N1zdmXf/logo.png" /></a>
         <a class="logout" href="{{url('logout')}}">Logout</a>
-        <a href="/pengajuan/riwayat">Nomor Surat</a>
-        <a href="/bukutamu/riwayat">Buku Tamu</a>
+        <a href="/riwayatPengajuan">Riwayat Saya</a>
+        <a href="/pengajuan">Nomor Surat</a>
+        <a href="/bukutamu">Buku Tamu</a>
     </nav>
     <center>
         <h1>Riwayat Pengajuan</h1>
@@ -184,25 +181,9 @@ textarea {
                     <tbody>
                         <tr>
                             <td class="nomer">{{ $p->idNo }}</td>
-                            <td>
-                                <form action="/pengajuan/updateStatus" method="post">
-                                    {{ csrf_field() }}
-                                    <input type="hidden" name="id" value="{{ $p->idNo }}" />
-                                    <select name="status" class="pengajuanStatusDropdown"
-                                        onfocus="this.setAttribute('PrvSelectedValue',this.value);">
-                                        <option value="diulas" {{ $p->status == "diulas" ? "selected" : ""}}>Diulas
-                                        </option>
-                                        <option value="ditolak" {{ $p->status == "ditolak" ? "selected" : ""}}>Ditolak
-                                        </option>
-                                        <option value="diterima" {{ $p->status == "diterima" ? "selected" : ""}}>
-                                            Diterima</option>
-                                    </select>
-                                </form>
-                            </td>
-                            <td><button class="komentarModal" data-id="{{ $p->idNo }}"
-                                    data-komentar="{{ $p->feedback }}">Lihat Komentar</button></td>
-                            <td>{{ $p->nomorSurat ?? "-" }}<button class="nomorSuratModal" data-id="{{ $p->idNo }}"
-                                    data-nomor="{{ $p->nomorSurat }}">Edit Nomor Surat</button></td>
+                            <td>{{ $p->status }}</td>
+                            <td>{{ $p->feedback }}</td>
+                            <td>{{ $p->nomorSurat ?? "-" }}</td>
                             <td>{{ $p->nama }}</td>
                             <td>{{ $p->kontak }}</td>
                             <td>{{ $p->kementrian }}</td>
@@ -248,113 +229,6 @@ textarea {
             <p>copyright &copy;2022 KBMSI FILKOM UB</p>
         </div>
     </footer>
-
-    <div id="pengajuanModal" class="modal">
-
-        <!-- Modal content -->
-        <div class="modal-content">
-            <span class="close komentar-close">&times;</span>
-
-            <h1>Komentar</h1>
-
-            <form action="/pengajuan/updateKomentar" method="post">
-                {{ csrf_field() }}
-                <input type="hidden" name="id" id="modal-id" />
-                <textarea id="modal-komentar" name="komentar" style="width: 100%" rows="10"
-                    placeholder="komentarnya apa..."></textarea>
-
-                <button>Cancel</button>
-                <button>Change</button>
-            </form>
-        </div>
-
-    </div>
-
-    <div id="nomorSuratModal" class="modal">
-
-        <!-- Modal content -->
-        <div class="modal-content">
-            <span class="close nomor-close">&times;</span>
-
-            <h1>Nomor Surat</h1>
-
-            <form action="/pengajuan/updateNomorSurat" method="post">
-                {{ csrf_field() }}
-                <input type="hidden" name="id" id="modal-id-nomor" />
-                <input id="modal-nomor-surat" name="nomorSurat" placeholder="nomor surat"></input><br>
-
-                <button>Cancel</button>
-                <button>Change</button>
-            </form>
-        </div>
-
-    </div>
-
-    <script>
-    $(document).ready(function() {
-        // ===== BUAT MODAL KOMENTAR =====
-        var modal = document.getElementById("pengajuanModal");
-
-        $(".komentarModal").click(function() {
-            modal.style.display = "block";
-            $("#modal-komentar").val($(this).data("komentar"));
-            $("#modal-id").val($(this).data("id"));
-        });
-
-        $(".komentar-close").click(function() {
-            modal.style.display = "none";
-            modalClose()
-        });
-
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-                modalClose()
-            }
-        }
-
-        function modalClose() {
-            $("#modal-komentar").val("");
-            $("#modal-id").val("");
-        }
-
-        // ===== BUAT MODAL KOMENTAR =====
-        var modalNomor = document.getElementById("nomorSuratModal");
-
-        $(".nomorSuratModal").click(function() {
-            modalNomor.style.display = "block";
-            $("#modal-nomor-surat").val($(this).data("nomor"));
-            $("#modal-id-nomor").val($(this).data("id"));
-        });
-
-        $(".close").click(function() {
-            modalNomor.style.display = "none";
-            modalClose()
-        });
-
-        window.onclick = function(event) {
-            if (event.target == modalNomor) {
-                modalNomor.style.display = "none";
-                modalNomorClose()
-            }
-        }
-
-        function modalNomorClose() {
-            $("#modal-nomor-surat").val("");
-            $("#modal-id-nomor").val("");
-        }
-
-        // ===== BUAT GANTI STATUS =====
-        $(".pengajuanStatusDropdown").on('change', function() {
-            if (confirm('Do you want to change?') == false) {
-                this.value = this.getAttribute('PrvSelectedValue');
-                return false;
-            }
-
-            this.form.submit();
-        });
-    });
-    </script>
 
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>

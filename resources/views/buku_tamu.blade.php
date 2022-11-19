@@ -188,7 +188,7 @@ label {
     <nav class="nav">
         <a class="active" href="/home"><img src="https://i.postimg.cc/3N1zdmXf/logo.png" /></a>
         <a class="logout" href="/">Logout</a>
-        <a href="/riwayat">Riwayat Saya</a>
+        <a href="/riwayatPengajuan">Riwayat Saya</a>
         <a href="/pengajuan">Nomor Surat</a>
         <a href="/bukutamu">Buku Tamu</a>
     </nav>
@@ -197,7 +197,7 @@ label {
     </center>
     <div class="box">
         <div class="container">
-            <form action="/bukutamu/store" method="post">
+            <form action="/bukutamu/insert" method="post">
                 {{ csrf_field() }}
                 <label>Nama</label><br />
                 <input id="nama" name="nama" required="required" placeholder="Tata Angela" /><br />
@@ -219,7 +219,7 @@ label {
         <div class="footer-content">
             <img src="https://i.postimg.cc/Pqp11spj/logo-2-Traced.png" alt="Nyurat">
             <ul class="faqcon">
-                <li><a href="/contactUs">Contact Us</a></li>
+                <li><a href="/contactus">Contact Us</a></li>
                 <li><a href="/faq">FAQ</a></li>
             </ul>
             <ul class="socials">

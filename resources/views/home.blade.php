@@ -204,7 +204,7 @@
     <nav class="nav">
         <a class="active" href="/home"><img src=" https://i.postimg.cc/3N1zdmXf/logo.png" /></a>
         <a class="logout" href="{{url('logout')}}">Logout</a>
-        <a href="/riwayat">Riwayat Saya</a>
+        <a href="/riwayatPengajuan">Riwayat Saya</a>
         <a href="/pengajuan">Nomor Surat</a>
         <a href="/bukutamu">Buku Tamu</a>
     </nav>

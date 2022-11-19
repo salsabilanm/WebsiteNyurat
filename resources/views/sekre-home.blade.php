@@ -70,8 +70,8 @@
     <nav class="nav">
         <a class="active" href="/sekre-home"><img src=" https://i.postimg.cc/3N1zdmXf/logo.png" /></a>
         <a class="logout" href="{{url('logout')}}">Logout</a>
-        <a href="/riwayatPengajuan">Nomor Surat</a>
-        <a href="/riwayatBukutamu">Buku Tamu</a>
+        <a href="/pengajuan/riwayat">Nomor Surat</a>
+        <a href="/bukutamu/riwayat">Buku Tamu</a>
     </nav>
 
     <div class="selamatDatang">

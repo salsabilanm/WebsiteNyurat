@@ -22,28 +22,28 @@ Route::post('proses_login', 'App\Http\Controllers\LoginController@proses_login')
 Route::get('logout', 'App\Http\Controllers\LoginController@logout')->name('logout');
 
 Route::group(['middleware' => ['auth']], function () {
-    Route::group(['middleware' => ['ceklogin:sekretaris']], function () {
-        Route::resource('sekre-home', SekreController::class);
-    });
     Route::group(['middleware' => ['ceklogin:user']], function () {
         Route::resource('home', HomeController::class);
+
+        Route::get('/bukutamu', [BukuTamuController::class, 'input']);
+        Route::post('/bukutamu/insert', [BukuTamuController::class, 'insert']);
+
+        Route::get('/pengajuan', [PengajuanController::class, 'pengajuan']);
+        Route::post('/pengajuan/insert', [PengajuanController::class, 'insert']);
+        Route::get('/riwayatPengajuan', [PengajuanController::class, 'userPengajuan']);
+    });
+    Route::group(['middleware' => ['ceklogin:sekretaris']], function () {
+        Route::resource('sekre-home', SekreController::class);
+        
+        Route::get('/bukutamu/riwayat', [BukuTamuController::class, 'index']);
+
+        Route::get('/pengajuan/riwayat', [PengajuanController::class, 'index']);
+        Route::post('/pengajuan/updateStatus', [PengajuanController::class, 'updateStatus']);
+        Route::post('/pengajuan/updateKomentar', [PengajuanController::class, 'updateKomentar']);
+        Route::post('/pengajuan/updateNomorSurat', [PengajuanController::class, 'updateNomorSurat']);
     });
 });
-
-Route::get('/bukutamu', [BukuTamuController::class, 'input']);
-Route::post('/bukutamu/store', [BukuTamuController::class, 'store']);
-Route::get('/riwayatBukutamu',[BukuTamuController::class, 'index']);
-
-Route::get('/pengajuan', [PengajuanController::class, 'input']);
-Route::post('/pengajuan/store', [PengajuanController::class, 'store']);
-Route::get('/riwayat', [PengajuanController::class, 'index']);
-
-Route::get('/riwayatPengajuan', [PengajuanController::class, 'indexsekre']);
 
 Route::get('/faq', function () {
     return view('faq');
-});
-
-Route::get('/contactUs', function () {
-    return view('contactus');
 });
