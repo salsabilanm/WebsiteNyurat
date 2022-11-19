@@ -75,6 +75,7 @@ h1 {
     </center>
     <div class="scroll1">
         <div class="scroll2">
+            @forelse($pengajuan as $bk)
             <div class="boxriw1">
                 <table border="0" width="2000px">
                     <thead>
@@ -91,18 +92,45 @@ h1 {
                             <th width="300px">Perihal</th>
                             <th width="300px">File</th>
                         </tr>
+                        @empty
+                        <div class="error">
+                            Belum terdapat Data Pengajuan.
+                        </div>
+                        @endforelse
                     </thead>
                 </table>
             </div>
-            <div class="boxriw2"></div>
+            <div class="boxriw2">
+                <table border="0" width=" 2000px">
+                    <?php $no = 0;?>
+                    @foreach($pengajuan as $p)
+                    <?php $no++ ;?>
+                    <tr>
+                        <td>{{ $no }}</td>
+                        <td>{{ $p->status }}</td>
+                        <td>{{ $p->feedback }}</td>
+                        <td>{{ $p->nomorSurat ?? "-" }}</td>
+                        <td>{{ $p->nama }}</td>
+                        <td>{{ $p->kontak }}</td>
+                        <td>{{ $p->kementrian }}</td>
+                        <td>{{ $p->programKerja }}</td>
+                        <td>{{ $p->jenis }}</td>
+                        <td>{{ $p->tujuan }}</td>
+                        <td>{{ $p->penerima }}</td>
+                        <td>{{ $p->perihal }}</td>
+                        <td><a href="{{ $p->file }}">{{ $p->file }}</a></td>
+                    </tr>
+                    @endforeach
+                </table>
+            </div>
         </div>
     </div>
 
     <footer>
         <div class="footer-content">
-            <img src="https://i.postimg.cc/Pqp11spj/logo-2-Traced.png" alt="Nyurat" />
+            <img src="https://i.postimg.cc/Pqp11spj/logo-2-Traced.png" alt="Nyurat">
             <ul class="faqcon">
-                <li><a href="#">Contact Us</a></li>
+                <li><a href="/contactUs">Contact Us</a></li>
                 <li><a href="/faq">FAQ</a></li>
             </ul>
             <ul class="socials">

@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SekreController;
 use App\Http\Controllers\BukuTamuController;
+use App\Http\Controllers\PengajuanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,23 +30,20 @@ Route::group(['middleware' => ['auth']], function () {
     });
 });
 
+Route::get('/bukutamu', [BukuTamuController::class, 'input']);
+Route::post('/bukutamu/store', [BukuTamuController::class, 'store']);
+Route::get('/riwayatBukutamu',[BukuTamuController::class, 'index']);
+
+Route::get('/pengajuan', [PengajuanController::class, 'input']);
+Route::post('/pengajuan/store', [PengajuanController::class, 'store']);
+Route::get('/riwayat', [PengajuanController::class, 'index']);
+
+Route::get('/riwayatPengajuan', [PengajuanController::class, 'indexsekre']);
+
 Route::get('/faq', function () {
     return view('faq');
 });
 
-Route::get('/bukutamu', [BukuTamuController::class, 'input']);
-Route::post('/bukutamu/store', [BukuTamuController::class, 'store']);
-
-Route::get('/pengajuan', function () {
-    return view('pengajuan');
-});
-
-Route::get('/riwayat', function () {
-    return view('riwayat');
-});
-
-Route::get('/riwayatBuktamu',[BukuTamuController::class, 'index']);
-
-Route::get('/riwayatPengajuan', function () {
-    return view('riwayatpengajuan');
+Route::get('/contactUs', function () {
+    return view('contactus');
 });

@@ -47,14 +47,16 @@ label {
 }
 
 input {
-    width: 100%;
+    width: 98%;
     height: 50px;
     background: #f3f1f1;
     border: #f3f1f1;
     border-radius: 13px;
     margin-bottom: 32px;
     margin-left: -5px;
+    margin-right: 5px;
     padding-left: 10px;
+    padding-right: 10px;
 }
 
 button {
@@ -71,6 +73,55 @@ button {
     line-height: 23px;
     text-align: center;
     color: #ffffff;
+    float: right;
+}
+
+#popup {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background: rgba(0, 0, 0, .7);
+    top: 0;
+    left: 0;
+    z-index: 9999;
+}
+
+.window {
+    width: 400px;
+    height: 100px;
+    background: #fff;
+    border-radius: 10px;
+    position: relative;
+    padding: 10px;
+    text-align: center;
+    margin: 15% auto;
+}
+
+.window h2 {
+    margin: 30px 0 0 0;
+    color: red;
+}
+
+/* Button Close */
+.close-button {
+    width: 6%;
+    height: 20%;
+    line-height: 23px;
+    background: #000;
+    border-radius: 50%;
+    border: 3px solid #fff;
+    display: block;
+    text-align: center;
+    color: #fff;
+    text-decoration: none;
+    position: absolute;
+    top: -10px;
+    right: -10px;
+}
+
+/* Memunculkan Jendela Pop Up*/
+#popup:target {
+    visibility: visible;
 }
 
 .footer {
@@ -96,10 +147,18 @@ button {
                 <input type="password" id="password" name="password" required="required" /><br />
                 <button type="submit">LOG IN</button>
             </form>
-            <div class="pesan error" </div>
+
+        </div>
+        @if($errors->any())
+        <div id="popup">
+            <div class="window">
+                <a href="/" class="close-button" title="Close">X</a>
+                <h2>{{ $errors->first() }}</h2>
             </div>
         </div>
-        <img class=" footer" src="https://i.postimg.cc/85MmPkfw/undraw-moonlight-5-ksn-1-1.png" />
+    </div>
+    @enderror
+    <img class=" footer" src="https://i.postimg.cc/85MmPkfw/undraw-moonlight-5-ksn-1-1.png" />
 </body>
 
 </html>

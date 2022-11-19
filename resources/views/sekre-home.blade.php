@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{!! asset('css/footer-sekre.css') !!}">
+    <link rel="stylesheet" type="text/css" href="{!! asset('css/navbar.css') !!}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Homepage Sekretaris - Nyurat</title>
     <style>
@@ -15,56 +17,6 @@
         font-family: 'Roboto', sans-serif;
         background-color: #CCC5BE;
     }
-
-    .nav {
-        overflow: hidden;
-        background-color: #FBFAF8;
-        height: 60px;
-        padding: 8px 15px;
-    }
-
-    .nav a {
-        float: right;
-        color: #1E1E1E;
-        text-align: center;
-        padding: 12px;
-        text-decoration: none;
-        background-color: #F3F1F1;
-        font-size: 14px;
-        margin: 10px;
-        border-radius: 8px;
-        font-weight: bold;
-
-    }
-
-    .nav a:hover {
-        background-color: #ddd;
-        color: #1E1E1E;
-    }
-
-    .nav a.active {
-        float: left;
-        background: none;
-        padding-top: 0%;
-        padding-left: 0%;
-    }
-
-    .nav a img {
-
-        height: 40px;
-        width: auto;
-    }
-
-    .nav a.logout {
-        color: #8B1337;
-        background: none;
-    }
-
-    .nav a.logout:hover {
-        background-color: #921339;
-        color: #cea5a5;
-    }
-
 
     .selamatDatang p {
         margin-left: 160px;
@@ -110,91 +62,16 @@
         background-color: #ddd;
         color: #1E1E1E;
     }
-
-
-    footer {
-        position: absolute;
-        min-height: auto;
-        background-image: url("https://i.postimg.cc/k51JwQqW/Footer.png");
-        width: 100%;
-        min-height: 200px;
-        font-family: "Open Sans";
-        padding-top: 170px;
-        color: #fff;
-        background-repeat: no-repeat;
-    }
-
-    .footer-content {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .socials {
-        list-style: none;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 0 0 20px 0;
-        padding: 0;
-    }
-
-    .socials li {
-        margin: 0 10px;
-    }
-
-    .socials a {
-        text-decoration: none;
-        color: #fff;
-    }
-
-    .socials a i {
-        font-size: 1.1rem;
-        transition: color 0.4s ease;
-    }
-
-    .socials a:hover i {
-        color: aqua;
-    }
-
-    .footer-bottom {
-        background: #485b51;
-        padding-bottom: 20px;
-        text-align: center;
-    }
-
-    .footer-bottom p {
-        font-size: 14px;
-        word-spacing: 2px;
-        text-transform: capitalize;
-    }
-
-    .footer-bottom span {
-        text-transform: uppercase;
-        opacity: 0.4;
-        font-weight: 200;
-    }
-
-    .footer-content img {
-        width: 120px;
-        height: auto;
-        margin-top: 30px;
-        margin-bottom: 30px;
-        display: flex;
-        align-items: center;
-    }
     </style>
 
 </head>
 
 <body>
     <nav class="nav">
-        <a class="active" href="/home"><img src=" https://i.postimg.cc/3N1zdmXf/logo.png" /></a>
+        <a class="active" href="/sekre-home"><img src=" https://i.postimg.cc/3N1zdmXf/logo.png" /></a>
         <a class="logout" href="{{url('logout')}}">Logout</a>
         <a href="/riwayatPengajuan">Nomor Surat</a>
-        <a href="/riwayatBuktamu">Buku Tamu</a>
+        <a href="/riwayatBukutamu">Buku Tamu</a>
     </nav>
 
     <div class="selamatDatang">
@@ -204,9 +81,9 @@
         <table cellpadding="10">
             <tr>
                 <td>
-                    <a id="tombol" href="/riwayatpengajuan">Nomor Surat</a>
+                    <a id="tombol" href="/riwayatPengajuan">Nomor Surat</a>
                     <br><br><br><br><br><br>
-                    <a id="tombol" class="bukutamu" href="/riwayatbukutamu">Buku Tamu</a>
+                    <a id="tombol" class="bukutamu" href="/riwayatBukutamu">Buku Tamu</a>
                 </td>
                 <td>
                     <img src="https://i.postimg.cc/yxx1x5C6/homepage-sekre.png" alt="Semangat Pagi">
@@ -218,9 +95,12 @@
         <div class="footer-content">
             <img src="https://i.postimg.cc/Pqp11spj/logo-2-Traced.png" alt="Nyurat">
             <ul class="socials">
-                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                <li><a href="#"><i class="fa fa-youtube"></i></a></li>
+                <li><a href="https://instagram.com/kbmsi_ub?igshid=YmMyMTA2M2Y="><i class="fa fa-instagram"></i></a>
+                </li>
+                <li><a href="https://twitter.com/emsi_ub?t=t31fcZHRh9EBvfcgmhvtYw&s=06"><i
+                            class="fa fa-twitter"></i></a></li>
+                <li><a href="https://youtube.com/channel/UCc7XWqQPVoSx7rAonTRiv9w"><i class="fa fa-youtube"></i></a>
+                </li>
             </ul>
         </div>
         <div class="footer-bottom">

@@ -5,7 +5,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Riwayat Buku Tamu - Nyurat</title>
-    <link rel="stylesheet" type="text/css" href="{!! asset('css/footer.css') !!}">
+    <link rel="stylesheet" type="text/css" href="{!! asset('css/footer-sekre.css') !!}">
+    <link rel="stylesheet" type="text/css" href="{!! asset('css/navbar.css') !!}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
 </head>
@@ -13,62 +14,14 @@
 *,
 *::before,
 *::after {
-    margin: 0;
     padding: 0;
+    margin: 0;
     box-sizing: inherit;
 }
 
 html {
     font-family: "Roboto", sans-serif;
     background-color: #ccc5be;
-}
-
-.nav {
-    overflow: hidden;
-    background-color: #fbfaf8;
-    height: 60px;
-    padding: 8px 15px;
-}
-
-.nav a {
-    float: right;
-    color: #1e1e1e;
-    text-align: center;
-    padding: 12px;
-    text-decoration: none;
-    background-color: #f3f1f1;
-    font-size: 14px;
-    margin: 10px;
-    border-radius: 8px;
-    font-weight: bold;
-}
-
-.nav a:hover {
-    background-color: #ddd;
-    color: #1e1e1e;
-}
-
-.nav a.active {
-    float: left;
-    background: none;
-    padding-top: 0%;
-    padding-left: 0%;
-}
-
-.nav a img {
-    height: 40px;
-    width: auto;
-    border-radius: 8px;
-}
-
-.nav a.logout {
-    background-color: #8b1337;
-    color: #f2f2f2;
-}
-
-.nav a.logout:hover {
-    background-color: #67132c;
-    color: #f2f2f2;
 }
 
 h1 {
@@ -111,12 +64,9 @@ h1 {
 
 <body>
     <nav class="nav">
-        <a class="active" href="#home"><img
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Borobudur_Temple.jpg/320px-Borobudur_Temple.jpg" /></a>
-        <a class="logout" href="#logout">Logout</a>
-        <a href="#sekretaris" style="background: none">Sekretaris</a>
-        <a href="#riwayat">Riwayat Saya</a>
-        <a href="#nosurat">Nomor Surat</a>
+        <a class="active" href="/sekre-home"><img src=" https://i.postimg.cc/3N1zdmXf/logo.png" /></a>
+        <a class="logout" href="{{url('logout')}}">Logout</a>
+        <a href="/riwayatPengajuan">Nomor Surat</a>
         <a href="/riwayatBuktamu">Buku Tamu</a>
     </nav>
     <center>
@@ -124,6 +74,7 @@ h1 {
     </center>
     <div class="scroll1">
         <div class="scroll2">
+            @forelse($buku_tamu as $bk)
             <div class="boxriw1">
                 <table border="0" width="2000px">
                     <thead>
@@ -135,39 +86,42 @@ h1 {
                             <th>Kegiatan</th>
                             <th width="500px">File</th>
                         </tr>
-                        @foreach($bukutamu as $bk)
-                        <tr>
-                            <td>{{ $bk->nama }}</td>
-                            <td>{{ $bk->kontak }}</td>
-                            <td>{{ $bk>jenis }}</td>
-                            <td>{{ $bk->kegiatan }}</td>
-                            <td>{{ $bk->file }}</td>
-                            </td>
-                        </tr>
-                        @endforeach
+                        @empty
+                        <div class="error">
+                            Belum terdapat Data Buku Tamu.
+                        </div>
+                        @endforelse
                     </thead>
                 </table>
             </div>
-            <div class="boxriw2"></div>
+            <div class="boxriw2">
+                <table border="0" width=" 2000px">
+                    <?php $no = 0;?>
+                    @foreach($buku_tamu as $bk)
+                    <?php $no++ ;?>
+                    <tr>
+                        <td>{{ $no }}</td>
+                        <td>{{$bk->nama}}</td>
+                        <td>{{$bk->kontak}}</td>
+                        <td>{{$bk->jenis}}</td>
+                        <td>{{$bk->kegiatan}}</td>
+                        <td>{{$bk->file}}</td>
+                        </td>
+                    </tr>
+                    @endforeach
+                </table>
+            </div>
         </div>
     </div>
-
     <footer>
-        <div class="footer-content">
-            <img src="https://i.postimg.cc/Pqp11spj/logo-2-Traced.png" alt="Nyurat" />
-            <ul class="faqcon">
-                <li><a href="#">Contact Us</a></li>
-                <li><a href="#">FAQ</a></li>
-            </ul>
+        <div class=" footer-content">
+            <img src="https://i.postimg.cc/Pqp11spj/logo-2-Traced.png" alt="Nyurat">
             <ul class="socials">
-                <li>
-                    <a href="#"><i class="fa fa-instagram"></i></a>
+                <li><a href="https://instagram.com/kbmsi_ub?igshid=YmMyMTA2M2Y="><i class="fa fa-instagram"></i></a>
                 </li>
-                <li>
-                    <a href="#"><i class="fa fa-twitter"></i></a>
-                </li>
-                <li>
-                    <a href="#"><i class="fa fa-youtube"></i></a>
+                <li><a href="https://twitter.com/emsi_ub?t=t31fcZHRh9EBvfcgmhvtYw&s=06"><i
+                            class="fa fa-twitter"></i></a></li>
+                <li><a href="https://youtube.com/channel/UCc7XWqQPVoSx7rAonTRiv9w"><i class="fa fa-youtube"></i></a>
                 </li>
             </ul>
         </div>
@@ -175,7 +129,6 @@ h1 {
             <p>copyright &copy;2022 KBMSI FILKOM UB</p>
         </div>
     </footer>
-
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>

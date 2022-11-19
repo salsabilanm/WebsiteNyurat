@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="{!! asset('css/footer.css') !!}">
     <link rel="stylesheet" type="text/css" href="{!! asset('css/navbar.css') !!}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -196,7 +197,10 @@ label {
     </center>
     <div class="box">
         <div class="container">
-            <form>
+            <form action="/pengajuan/store" method="post">
+                {{ csrf_field() }}
+                <label>NIM</label><br />
+                <input id="nim" name="nim" required="required" placeholder="205150401111018" /><br />
                 <label>Nama</label><br />
                 <input id="nama" name="nama" required="required" placeholder="Tata Angela" /><br />
                 <label>Kontak</label><br />
@@ -241,8 +245,8 @@ label {
         <div class="footer-content">
             <img src="https://i.postimg.cc/Pqp11spj/logo-2-Traced.png" alt="Nyurat">
             <ul class="faqcon">
-                <li><a href="#">Contact Us</a></li>
-                <li><a href="#">FAQ</a></li>
+                <li><a href="/contactUs">Contact Us</a></li>
+                <li><a href="/faq">FAQ</a></li>
             </ul>
             <ul class="socials">
                 <li><a href="https://instagram.com/kbmsi_ub?igshid=YmMyMTA2M2Y="><i class="fa fa-instagram"></i></a>

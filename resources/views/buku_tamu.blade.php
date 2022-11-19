@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="{!! asset('css/footer.css') !!}">
     <link rel="stylesheet" type="text/css" href="{!! asset('css/navbar.css') !!}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -218,7 +219,7 @@ label {
         <div class="footer-content">
             <img src="https://i.postimg.cc/Pqp11spj/logo-2-Traced.png" alt="Nyurat">
             <ul class="faqcon">
-                <li><a href="/contactus">Contact Us</a></li>
+                <li><a href="/contactUs">Contact Us</a></li>
                 <li><a href="/faq">FAQ</a></li>
             </ul>
             <ul class="socials">

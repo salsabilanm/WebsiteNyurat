@@ -208,10 +208,10 @@ ol {
     </section>
     <footer>
         <div class="footer-content">
-            <img src="https://i.postimg.cc/Pqp11spj/logo-2-Traced.png" alt="Nyurat" />
+            <img src="https://i.postimg.cc/Pqp11spj/logo-2-Traced.png" alt="Nyurat">
             <ul class="faqcon">
-                <li><a href="#">Contact Us</a></li>
-                <li><a href="#">FAQ</a></li>
+                <li><a href="/contactUs">Contact Us</a></li>
+                <li><a href="/faq">FAQ</a></li>
             </ul>
             <ul class="socials">
                 <li><a href="https://instagram.com/kbmsi_ub?igshid=YmMyMTA2M2Y="><i class="fa fa-instagram"></i></a>
