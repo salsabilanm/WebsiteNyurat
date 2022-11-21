@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Riwayat Buku Tamu - Nyurat</title>
-    <link rel="stylesheet" type="text/css" href="{!! asset('css/footer.css') !!}">
+    <link rel="stylesheet" type="text/css" href="{!! asset('css/footer-sekre.css') !!}">
     <link rel="stylesheet" type="text/css" href="{!! asset('css/navbar.css') !!}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
@@ -39,8 +39,8 @@ h1 {
     color: black;
     background-color: #ddd;
     align-items: center;
-    padding: 1rem;
-    width: fit-content;
+    padding: 10px 0 10px 0;
+    width: 100%;
 }
 
 .boxriw2 {
@@ -106,7 +106,7 @@ table tr:hover {
                             <th>Kontak</th>
                             <th>Jenis</th>
                             <th>Kegiatan</th>
-                            <th width="500px">File</th>
+                            <th width="200px">File</th>
                         </tr>
                         <?php $no = 0; ?>
                         @forelse($buku_tamu as $bk)
@@ -131,14 +131,9 @@ table tr:hover {
             <div class="boxriw2"></div>
         </div>
     </div>
-
     <footer>
         <div class="footer-content">
-            <img src="https://i.postimg.cc/Pqp11spj/logo-2-Traced.png" alt="Nyurat" />
-            <ul class="faqcon">
-                <li><a href="#">Contact Us</a></li>
-                <li><a href="#">FAQ</a></li>
-            </ul>
+            <img src="https://i.postimg.cc/Pqp11spj/logo-2-Traced.png" alt="Nyurat">
             <ul class="socials">
                 <li><a href="https://instagram.com/kbmsi_ub?igshid=YmMyMTA2M2Y="><i class="fa fa-instagram"></i></a>
                 </li>
@@ -152,7 +147,6 @@ table tr:hover {
             <p>copyright &copy;2022 KBMSI FILKOM UB</p>
         </div>
     </footer>
-
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>

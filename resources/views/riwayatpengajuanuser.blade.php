@@ -177,17 +177,19 @@ textarea {
                             <th width="300px">File</th>
                         </tr>
                     </thead>
+                    <?php $no = 0; ?>
                     @forelse($pengajuan as $p)
+                    <?php $no++; ?>
                     <tbody>
                         <tr>
-                            <td class="nomer">{{ $p->idNo }}</td>
+                            <td class="nomer">{{ $no }}</td>
                             <td>{{ $p->status }}</td>
                             <td>{{ $p->feedback }}</td>
                             <td>{{ $p->nomorSurat ?? "-" }}</td>
                             <td>{{ $p->nama }}</td>
                             <td>{{ $p->kontak }}</td>
                             <td>{{ $p->kementrian }}</td>
-                            <td>{{ $p->programKerja }}</td>
+                            <td>{{ $p->programkerja }}</td>
                             <td>{{ $p->jenis }}</td>
                             <td>{{ $p->tujuan }}</td>
                             <td>{{ $p->penerima }}</td>

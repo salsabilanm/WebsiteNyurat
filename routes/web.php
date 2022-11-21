@@ -26,10 +26,10 @@ Route::group(['middleware' => ['auth']], function () {
         Route::resource('home', HomeController::class);
 
         Route::get('/bukutamu', [BukuTamuController::class, 'input']);
-        Route::post('/bukutamu/insert', [BukuTamuController::class, 'insert']);
+        Route::post('/bukutamu/store', [BukuTamuController::class, 'store']);
 
         Route::get('/pengajuan', [PengajuanController::class, 'pengajuan']);
-        Route::post('/pengajuan/insert', [PengajuanController::class, 'insert']);
+        Route::post('/pengajuan/store', [PengajuanController::class, 'store']);
         Route::get('/riwayatPengajuan', [PengajuanController::class, 'userPengajuan']);
     });
     Route::group(['middleware' => ['ceklogin:sekretaris']], function () {

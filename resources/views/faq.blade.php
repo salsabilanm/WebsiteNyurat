@@ -19,9 +19,11 @@
     box-sizing: inherit;
 }
 
-html {
-    font-family: "Roboto", sans-serif;
-    background-color: #ccc5be;
+body {
+    padding: 0;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #CCC5BE;
 }
 
 h1 {
@@ -124,8 +126,8 @@ ol {
 <body>
     <nav class="nav">
         <a class="active" href="/home"><img src="https://i.postimg.cc/3N1zdmXf/logo.png" /></a>
-        <a class="logout" href="/">Logout</a>
-        <a href="/riwayat">Riwayat Saya</a>
+        <a class="logout" href={{url('logout')}}/">Logout</a>
+        <a href="/riwayatPengajuan">Riwayat Saya</a>
         <a href="/pengajuan">Nomor Surat</a>
         <a href="/bukutamu">Buku Tamu</a>
     </nav>
@@ -210,7 +212,7 @@ ol {
         <div class="footer-content">
             <img src="https://i.postimg.cc/Pqp11spj/logo-2-Traced.png" alt="Nyurat">
             <ul class="faqcon">
-                <li><a href="/contactUs">Contact Us</a></li>
+                <li><a href="/customerservice">Contact Us</a></li>
                 <li><a href="/faq">FAQ</a></li>
             </ul>
             <ul class="socials">

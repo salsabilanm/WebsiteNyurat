@@ -81,9 +81,9 @@
         <table cellpadding="10">
             <tr>
                 <td>
-                    <a id="tombol" href="/riwayatPengajuan">Nomor Surat</a>
+                    <a id="tombol" href="/pengajuan/riwayat">Nomor Surat</a>
                     <br><br><br><br><br><br>
-                    <a id="tombol" class="bukutamu" href="/riwayatBukutamu">Buku Tamu</a>
+                    <a id="tombol" class="bukutamu" href="/bukutamu/riwayat">Buku Tamu</a>
                 </td>
                 <td>
                     <img src="https://i.postimg.cc/yxx1x5C6/homepage-sekre.png" alt="Semangat Pagi">

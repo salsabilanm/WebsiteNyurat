@@ -10,14 +10,14 @@ class LoginController extends Controller
 {
     public function index()
     {
-        if ($user = Auth::user()) {
-            if ($user->role == 'sekretaris') {
-                return redirect()->intended('sekre-home');
-            } elseif ($user->role == 'user') {
-                return redirect()->intended('home');
+        if ($user = Auth::user()) { //2
+            if ($user->role == 'sekretaris') { //3
+                return redirect()->intended('sekre-home'); //4
+            } elseif ($user->role == 'user') { 
+                return redirect()->intended('home'); //5
             }
         }
-        return view('login');
+        return view('login'); //6
     }
 
     public function proses_login(Request $request)
@@ -26,23 +26,23 @@ class LoginController extends Controller
             [
                 'nim' => 'required',
                 'password' => 'required',
-            ]);
+            ]); // 7
 
-        $kredensil = $request->only('nim','password');
+        $kredensil = $request->only('nim','password'); //8
 
-            if (Auth::attempt($kredensil)) {
+            if (Auth::attempt($kredensil)) { //9
                 $user = Auth::user();
-                if ($user->role == 'sekretaris') {
-                    return redirect()->intended('sekre-home');
-                } elseif ($user->role == 'user') {
-                    return redirect()->intended('home');
+                if ($user->role == 'sekretaris') { //10
+                    return redirect()->intended('sekre-home'); //11
+                } elseif ($user->role == 'user') { //12
+                    return redirect()->intended('home'); //13
                 }
-                return redirect()->intended('/');
+                return redirect()->intended('/'); //14
             }
 
         return redirect('/')
                 ->withInput()
-                ->withErrors(['login_gagal' => 'Maaf, NIM atau Password Anda Salah. Harap Masukkan Kembali']);
+                ->withErrors(['login_gagal' => 'Maaf, NIM atau Password Anda Salah. Harap Masukkan Kembali']); //15
     }
 
     public function logout(Request $request)

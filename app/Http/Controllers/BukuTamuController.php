@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class BukuTamuController extends Controller
 {
@@ -22,12 +23,14 @@ class BukuTamuController extends Controller
     public function store(Request $request)
     {
 	// insert data ke table buku tamu
+	$user = Auth::user();
 	DB::table('buku_tamu')->insert([
 		'nama' => $request->nama,
 		'kontak' => $request->kontak,
 		'jenis' => $request->jenis,
 		'kegiatan' => $request->kegiatan,
-        'file' => $request->file
+        'file' => $request->file,
+		'id' => $user->id,
 	]);
 	// alihkan halaman ke halaman home
 	return redirect('/home');

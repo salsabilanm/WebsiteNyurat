@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="{!! asset('css/navbar.css') !!}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <title>Pengajuan Surat - Nyurat</title>
+    <title>Customer Service - Nyurat</title>
 </head>
 <style>
 html,
@@ -19,231 +19,121 @@ body {
     background-color: #CCC5BE;
 }
 
-input,
-select {
+section {
+    box-sizing: border-box;
     width: 100%;
-    height: 50px;
-    background: #f3f1f1;
-    border: #f3f1f1;
-    border-radius: 13px;
-    margin-bottom: 32px;
-    margin-left: -5px;
-    padding-left: 10px;
-    box-sizing: content-box;
-
-}
-
-.footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: -1;
+    display: flex;
+    margin-top: 0;
+    align-items: center;
+    justify-content: center;
 }
 
 h1 {
-    color: #AB6135;
-    size: 20px;
-}
-
-form {
-    margin: 0 auto;
-    width: 600px;
-}
-
-.submit {
-    width: 100%;
-    color: #fff;
-    text-align: center;
-    padding: 12px;
-    text-decoration: none;
-    background-color: #AB6135;
-    font-size: 14px;
-    border-radius: 8px;
-    font-weight: bold;
-    outline: none;
-    border: none;
-}
-
-footer {
-    min-height: auto;
-    background-image: url("https://i.postimg.cc/k51JwQqW/Footer.png");
-    width: 100%;
-    min-height: 200px;
-    font-family: "Open Sans";
-    padding-top: 170px;
-    color: #fff;
-    background-repeat: no-repeat;
-
-}
-
-h3 {
+    font-family: "Roboto", sans-serif;
     font-style: normal;
     font-weight: 800;
     font-size: 100px;
+    margin-top: 50px;
+    color: #ab6135;
 }
 
-.footer-content {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    text-align: center;
+.container {
+    width: 100%;
+    max-width: 100rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
 }
 
-.footer-content h3 {
-    font-size: 1.8rem;
-    font-weight: 400;
-    text-transform: capitalize;
-    line-height: 3rem;
+.faq-item {
+    padding-top: 0px;
+    background-color: #9b9494;
+    width: 75%;
+    height: 20vh;
+    border-radius: 1rem;
+    margin-bottom: 1 rem;
+    margin: 3rem auto;
+    box-shadow: inset 0px 60px 20px rgba(0, 0, 0, 0.25);
 }
 
-.socials {
-    list-style: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 0 20px 0;
-    padding: 0;
-}
-
-.socials li {
-    margin: 0 10px;
-}
-
-.socials a {
+.faq-link {
+    font-size: 15px;
+    color: black;
     text-decoration: none;
-    color: #fff;
-}
-
-.socials a i {
-    font-size: 1.1rem;
-    transition: color 0.4s ease;
-}
-
-.socials a:hover i {
-    color: aqua;
-}
-
-.faqcon {
-    list-style: none;
+    background-color: #f6f4f1;
+    border-radius: 1rem 1rem;
     display: flex;
     align-items: center;
-    justify-content: center;
-    margin: 20px 0 20px 0;
-    padding: 0;
+    justify-content: space-between;
+    padding: 1rem;
 }
 
-.faqcon li {
-    margin: 0 10px;
+.answer {
+    max-height: 0;
+    position: relative;
+    padding-top: 10px;
+    background-repeat: #212838;
+    transition: max-height 650ms;
 }
 
-.faqcon a {
-    text-decoration: none;
-    color: #fff;
-}
-
-.faqcon a i {
-    font-size: 1.1rem;
-    transition: color 0.4s ease;
-}
-
-.faqcon a:hover i {
-    color: aqua;
-}
-
-.footer-bottom {
-    background: #485b51;
-    padding-bottom: 20px;
-    text-align: center;
-}
-
-.footer-bottom p {
-    font-size: 14px;
-    word-spacing: 2px;
-    text-transform: capitalize;
-}
-
-.footer-bottom span {
-    text-transform: uppercase;
-    opacity: 0.4;
-    font-weight: 200;
-}
-
-.footer-content img {
-    width: 70px;
-    height: auto;
-    margin-top: 30px;
+.answer p {
+    color: white;
+    font-size: 15px;
+    padding-left: 20px;
     display: flex;
     align-items: center;
-}
-
-label {
-    color: #4D4A4A;
-    font-weight: bold;
+    justify-content: space-between;
 }
 </style>
 
 <body>
     <nav class="nav">
         <a class="active" href="/home"><img src="https://i.postimg.cc/3N1zdmXf/logo.png" /></a>
-        <a class="logout" href="{{url('logout')}}">Logout</a>
-        <a href="/riwayat">Riwayat Saya</a>
+        <a class="logout" href={{url('logout')}}/">Logout</a>
+        <a href="/riwayatPengajuan">Riwayat Saya</a>
         <a href="/pengajuan">Nomor Surat</a>
         <a href="/bukutamu">Buku Tamu</a>
     </nav>
     <center>
-        <h1>Pengajuan Nomor</h1>
+        <h1>Customer Service</h1>
     </center>
-    <div class="box">
+
+    <section>
         <div class="container">
-            <form action="/pengajuan/store" method="post">
-                {{ csrf_field() }}
-                <label>Nama</label><br />
-                <input id="nama" name="nama" required="required" placeholder="Tata Angela" /><br />
-                <label>Kontak</label><br />
-                <input id="kontak" name="kontak" required="required" placeholder="Line - angellll34" /><br />
-                <label>Kementrian</label><br />
-                <input id="kementrian" name="kementrian" required="required" placeholder="PSDM" /><br />
-                <label>Program Kerja</label><br />
-                <input id="programkerja" name="programkerja" required="required" placeholder="WOW SI 2022" /><br />
-                <label>Jenis</label><br />
-                <select name="jenis" id="jenis">
-                    <option value="undangan">Undangan</option>
-                    <option value="permohonan">Permohonan</option>
-                    <option value="keterangan">Keterangan</option>
-                    <option value="kerjasama">Kerjasama</option>
-                    <option value="surattugas">Surat Tugas</option>
-                    <option value="pengumuman">Pengumuman</option>
-                    <option value="ucapan">Ucapan</option>
-                    <option value="rekomendasi">Rekomendasi</option>
-                    <option value="peringatan">Peringatan</option>
-                    <option value="suratbalasan">Surat Balasan</option>
-                    <option value="suratkeputusan">Surat Keputusan</option>
-                </select> <br>
-                <label>Tujuan</label><br />
-                <select name="tujuan" id="tujuan">
-                    <option value="internal">Internal</option>
-                    <option value="eksternal">Eksternal</option>
-                </select> <br>
-                <label>Penerima</label><br />
-                <input id="penerima" name="penerima" required="required"
-                    placeholder="Dekan Fakultas Ilmu Komputer" /><br />
-                <label>Perihal</label><br />
-                <input id="perihal" name="perihal" required="required" placeholder="Perihal Peminjaman Gedung" /><br />
-                <label>File</label><br />
-                <input id="file" type="url" name="file" required="required"
-                    placeholder="bit.ly/SuratPeminjaman" /><br />
-                <button class="submit" type="submit">SUBMIT</button>
-            </form>
+            <div class="faq">
+                <div class="faq-item" id="question1">
+                    <a class="faq-link">
+                        <b>Sekretaris 1</b>
+                    </a>
+                    <div class="answer">
+                        <p>Line - yushintaprassanty (Yushinta) </p>
+                    </div>
+                </div>
+
+                <div class="faq-item" id="question2">
+                    <a class="faq-link">
+                        <b>Sekretaris 2</b>
+                    </a>
+                    <div class="answer">
+                        <p>Line - nsboo (Khairunnisa)</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" id="question3">
+                    <a class="faq-link">
+                        <b>Sekretaris 3</b>
+                    </a>
+                    <div class="answer">
+                        <p>Line - vharetta02 (Elvaretta)</p>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-    <img class="footer" src="https://i.postimg.cc/85MmPkfw/undraw-moonlight-5-ksn-1-1.png" />
+    </section>
     <footer>
         <div class="footer-content">
             <img src="https://i.postimg.cc/Pqp11spj/logo-2-Traced.png" alt="Nyurat">
             <ul class="faqcon">
-                <li><a href="/contactUs">Contact Us</a></li>
+                <li><a href="/customerservice">Contact Us</a></li>
                 <li><a href="/faq">FAQ</a></li>
             </ul>
             <ul class="socials">
@@ -259,6 +149,9 @@ label {
             <p>copyright &copy;2022 KBMSI FILKOM UB</p>
         </div>
     </footer>
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
 
 </html>

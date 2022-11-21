@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Riwayat - Nyurat</title>
-    <link rel="stylesheet" type="text/css" href="{!! asset('css/footer.css') !!}">
+    <link rel="stylesheet" type="text/css" href="{!! asset('css/footer-sekre.css') !!}">
     <link rel="stylesheet" type="text/css" href="{!! asset('css/navbar.css') !!}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
 
@@ -43,7 +43,7 @@ h1 {
     color: black;
     background-color: #ddd;
     align-items: center;
-    padding: 1rem;
+    padding: 10px 0 10px 0;
     width: fit-content;
 }
 
@@ -72,7 +72,7 @@ table {
 table th,
 table td {
     text-align: left;
-    min-width: 100px;
+    min-width: 150px;
     white-space: nowrap;
     padding: 8px 20px;
     border: none;
@@ -169,7 +169,7 @@ textarea {
                             <th>Status</th>
                             <th>Komentar</th>
                             <th>No Surat</th>
-                            <th width="0px">Nama</th>
+                            <th>Nama</th>
                             <th>Kontak</th>
                             <th>Kementerian</th>
                             <th>Program Kerja</th>
@@ -180,33 +180,35 @@ textarea {
                             <th width="300px">File</th>
                         </tr>
                     </thead>
+                    <?php $no = 0; ?>
                     @forelse($pengajuan as $p)
+                    <?php $no++; ?>
                     <tbody>
                         <tr>
-                            <td class="nomer">{{ $p->idNo }}</td>
+                            <td class="nomer">{{ $no }}</td>
                             <td>
                                 <form action="/pengajuan/updateStatus" method="post">
                                     {{ csrf_field() }}
                                     <input type="hidden" name="id" value="{{ $p->idNo }}" />
                                     <select name="status" class="pengajuanStatusDropdown"
                                         onfocus="this.setAttribute('PrvSelectedValue',this.value);">
-                                        <option value="diulas" {{ $p->status == "diulas" ? "selected" : ""}}>Diulas
+                                        <option value="Diulas" {{ $p->status == "Diulas" ? "selected" : ""}}>Diulas
                                         </option>
-                                        <option value="ditolak" {{ $p->status == "ditolak" ? "selected" : ""}}>Ditolak
+                                        <option value="Ditolak" {{ $p->status == "Ditolak" ? "selected" : ""}}>Ditolak
                                         </option>
-                                        <option value="diterima" {{ $p->status == "diterima" ? "selected" : ""}}>
+                                        <option value="Diterima" {{ $p->status == "Diterima" ? "selected" : ""}}>
                                             Diterima</option>
                                     </select>
                                 </form>
                             </td>
                             <td><button class="komentarModal" data-id="{{ $p->idNo }}"
                                     data-komentar="{{ $p->feedback }}">Lihat Komentar</button></td>
-                            <td>{{ $p->nomorSurat ?? "-" }}<button class="nomorSuratModal" data-id="{{ $p->idNo }}"
-                                    data-nomor="{{ $p->nomorSurat }}">Edit Nomor Surat</button></td>
+                            <td>{{ $p->nomorsurat ?? "" }}<button class="nomorSuratModal" data-id="{{ $p->idNo }}"
+                                    data-nomor="{{ $p->nomorsurat }}">Edit Nomor Surat</button></td>
                             <td>{{ $p->nama }}</td>
                             <td>{{ $p->kontak }}</td>
                             <td>{{ $p->kementrian }}</td>
-                            <td>{{ $p->programKerja }}</td>
+                            <td>{{ $p->programkerja }}</td>
                             <td>{{ $p->jenis }}</td>
                             <td>{{ $p->tujuan }}</td>
                             <td>{{ $p->penerima }}</td>
@@ -224,23 +226,15 @@ textarea {
             <div class="boxriw2"></div>
         </div>
     </div>
-
     <footer>
         <div class="footer-content">
-            <img src="https://i.postimg.cc/Pqp11spj/logo-2-Traced.png" alt="Nyurat" />
-            <ul class="faqcon">
-                <li><a href="#">Contact Us</a></li>
-                <li><a href="#">FAQ</a></li>
-            </ul>
+            <img src="https://i.postimg.cc/Pqp11spj/logo-2-Traced.png" alt="Nyurat">
             <ul class="socials">
-                <li>
-                    <a href="#"><i class="fa fa-instagram"></i></a>
+                <li><a href="https://instagram.com/kbmsi_ub?igshid=YmMyMTA2M2Y="><i class="fa fa-instagram"></i></a>
                 </li>
-                <li>
-                    <a href="#"><i class="fa fa-twitter"></i></a>
-                </li>
-                <li>
-                    <a href="#"><i class="fa fa-youtube"></i></a>
+                <li><a href="https://twitter.com/emsi_ub?t=t31fcZHRh9EBvfcgmhvtYw&s=06"><i
+                            class="fa fa-twitter"></i></a></li>
+                <li><a href="https://youtube.com/channel/UCc7XWqQPVoSx7rAonTRiv9w"><i class="fa fa-youtube"></i></a>
                 </li>
             </ul>
         </div>
@@ -248,7 +242,6 @@ textarea {
             <p>copyright &copy;2022 KBMSI FILKOM UB</p>
         </div>
     </footer>
-
     <div id="pengajuanModal" class="modal">
 
         <!-- Modal content -->
@@ -281,7 +274,8 @@ textarea {
             <form action="/pengajuan/updateNomorSurat" method="post">
                 {{ csrf_field() }}
                 <input type="hidden" name="id" id="modal-id-nomor" />
-                <input id="modal-nomor-surat" name="nomorSurat" placeholder="nomor surat"></input><br>
+                <textarea id="modal-nomor-surat" name="nomorSurat" style="width: 100%" rows="10"
+                    placeholder="nomor surat"></textarea>
 
                 <button>Cancel</button>
                 <button>Change</button>
@@ -289,7 +283,22 @@ textarea {
         </div>
 
     </div>
-
+    <footer>
+        <div class=" footer-content">
+            <img src="https://i.postimg.cc/Pqp11spj/logo-2-Traced.png" alt="Nyurat">
+            <ul class="socials">
+                <li><a href="https://instagram.com/kbmsi_ub?igshid=YmMyMTA2M2Y="><i class="fa fa-instagram"></i></a>
+                </li>
+                <li><a href="https://twitter.com/emsi_ub?t=t31fcZHRh9EBvfcgmhvtYw&s=06"><i
+                            class="fa fa-twitter"></i></a></li>
+                <li><a href="https://youtube.com/channel/UCc7XWqQPVoSx7rAonTRiv9w"><i class="fa fa-youtube"></i></a>
+                </li>
+            </ul>
+        </div>
+        <div class="footer-bottom">
+            <p>copyright &copy;2022 KBMSI FILKOM UB</p>
+        </div>
+    </footer>
     <script>
     $(document).ready(function() {
         // ===== BUAT MODAL KOMENTAR =====

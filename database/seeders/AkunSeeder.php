@@ -17,15 +17,27 @@ class AkunSeeder extends Seeder
     {
         $user = [
             [
-                'name' => 'sekrekbmsi',
+                'nama' => 'sekrekbmsi',
                 'nim'=>'sekrekbmsi12',
                 'password'=> bcrypt('sekre123'),
                 'role' => 'sekretaris',
             ],
             [
-                'name' => 'Anggareni Puspa',
+                'nama' => 'Anggraeni Puspa Sari',
                 'nim'=>'205150401111018',
                 'password'=> bcrypt('anggi156'),
+                'role' => 'user',
+            ],
+            [
+                'nama' => 'Sari Rahmawati',
+                'nim'=>'205150401111019',
+                'password'=> bcrypt('sari123'),
+                'role' => 'user',
+            ],
+            [
+                'nama' => 'Salsabila Nur Malahayati',
+                'nim'=>'205150401111022',
+                'password'=> bcrypt('salsa456'),
                 'role' => 'user',
             ],
         ];

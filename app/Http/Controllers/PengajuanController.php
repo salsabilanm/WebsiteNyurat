@@ -13,22 +13,22 @@ class PengajuanController extends Controller
         $pengajuan = DB::table('pengajuan')->get();
 
         return view('riwayatpengajuan', ['pengajuan' => $pengajuan]);
-    }
+    } //1
 
     public function userPengajuan() {
         
         $user = Auth::user();
-        $pengajuan = DB::table('pengajuan')->get()->where('userId', $user->id);
+        $pengajuan = DB::table('pengajuan')->get()->where('id', $user->id);
 
         return view('riwayatpengajuanuser', ['pengajuan' => $pengajuan]);
-    }
+    } //2
 
     public function pengajuan()
     {
         return view('pengajuan');
-    }
+    } //3
 
-    public function insert(Request $request) {
+    public function store(Request $request) {
         $user = Auth::user();
 
         DB::table('pengajuan')->insert([
@@ -41,10 +41,10 @@ class PengajuanController extends Controller
             'penerima' => $request->penerima,
             'perihal' => $request->perihal,
             'file' => $request->file,
-            'status' => "diulas",
-            'userId' => $user->id,
+            'status' => "Diulas",
+            'id' => $user->id,
         ]);
-        return redirect('/riwayatPengajuan');
+        return redirect('/home');
     }
 
     public function updateStatus(Request $request) {

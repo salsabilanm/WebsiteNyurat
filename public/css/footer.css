@@ -40,6 +40,7 @@ h3 {
     align-items: center;
     justify-content: center;
     margin: 0 0 20px 0;
+    padding: 0px;
 }
 .socials li {
     margin: 0 10px;
@@ -62,6 +63,7 @@ h3 {
     align-items: center;
     justify-content: center;
     margin: 20px 0 20px 0;
+    padding: 0px;
 }
 .faqcon li {
     margin: 0 10px;
